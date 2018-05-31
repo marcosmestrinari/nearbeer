@@ -1,0 +1,25 @@
+<ion-content padding id="login" class="cor_fundo_verde">
+  <img  src="https://firebasestorage.googleapis.com/v0/b/nearbeer-b5c74.appspot.com/o/logo%2FLogo.png?alt=media&token=4dadc6c0-d480-41d7-97a9-90224a0cf612" class="logo"/>
+  <h1 padding ><span>O mapa da Cerveja</span></h1>
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Near Beer</h1>
+        <div>o radar da Cerveja</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+<form #form="ngForm" (ngSubmit)="entrar(form)" >
+  <ion-item class="cor_fundo_verde">
+    <ion-label class="cor_fonte_laranja" stacked>E-mail</ion-label>
+    <ion-input type="email" name="email" ngModel></ion-input>
+  </ion-item>
+  <ion-item class="cor_fundo_verde">
+    <ion-label class="cor_fonte_laranja" stacked>Senha</ion-label>
+    <ion-input type="password" name="senha" ngModel></ion-input>
+  </ion-item>
+  <button class="cor_fundo_laranja" ion-button full >Entrar</button>
+  <button class="cor_fundo_laranja" ion-button full type="button" (click)="registrar()">Registrar</button>
+</form> 
+</ion-content>

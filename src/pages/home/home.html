@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Near Beer
+      <br>
+      <div style="text-indent:1em; font-size:16px;"> O Mapa da sua cerveja favorita</div>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button menuToggle>menu</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="home" class="cor_fundo_verde">
+  <!-- <h2 name="h2">Bem vindo ao NearBeer !!!</h2> -->
+  <p>
+
+    <ion-row>
+      <ion-col col-6>
+        <div>
+          <ion-card class="card_menu">
+            <ion-icon name="ios-beer-outline" (click)="abrirCliente()"></ion-icon>
+            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/nearbeer-b5c74.appspot.com/o/clientes04a.png?alt=media&token=833233eb-6bcb-4537-834d-83d2b4a334f7"/> -->
+            <h2>Clientes</h2>
+          </ion-card>
+        </div>
+      </ion-col>
+      <ion-col col-6>
+        <div>
+          <ion-card class="card_menu">
+            <ion-icon name="ios-construct-outline" (click)="abrirPerfil()"></ion-icon>
+            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/nearbeer-b5c74.appspot.com/o/configuracao03.png?alt=media&token=0a581e03-700d-4047-842b-ab08dfa62f0f"/> -->
+            <h2>Conf. Perfil</h2>
+          </ion-card>
+        </div>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <div>
+          <ion-card class="card_menu">
+            <ion-icon name="ios-happy-outline" (click)="meuSorteio()"></ion-icon>
+            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/nearbeer-b5c74.appspot.com/o/sorteio01.png?alt=media&token=9a0176b8-e8d6-42f0-9406-d2776ef3277b"/> -->
+            <h2>Sorteio NearBeer</h2>
+          </ion-card>
+        </div>
+      </ion-col>
+      <ion-col col-6>
+        <div>
+          <ion-card class="card_menu">
+
+            <ion-icon name="ios-map-outline" (click)="abrirMapa()"></ion-icon>
+            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/nearbeer-b5c74.appspot.com/o/mapa01.png?alt=media&token=545f79e5-0722-46b2-a500-475bc1e548c7"/> -->
+            <h2>Mapa da Cerveja</h2>
+          </ion-card>
+        </div>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+
+      <ion-col col-6>
+        <div>
+          <ion-card class="card_menu">
+            <ion-icon name="ios-information-circle-outline"  (click)="abrirCuriosidades()"></ion-icon>
+            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/nearbeer-b5c74.appspot.com/o/mapa01.png?alt=media&token=545f79e5-0722-46b2-a500-475bc1e548c7"/> -->
+            <h2>Curiosidades</h2>
+          </ion-card>
+        </div>
+      </ion-col>
+
+      <ion-col col-6>
+        <div *ngFor="let usuario of usuario$ | async">
+          <ion-card *ngIf="usuario.adm==true" class="card_menu">
+            <ion-icon name="ios-grid-outline" (click)="abrirListaSoreio()"></ion-icon>
+            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/nearbeer-b5c74.appspot.com/o/mapa01.png?alt=media&token=545f79e5-0722-46b2-a500-475bc1e548c7"/> -->
+            <h2>Sortear</h2>
+          </ion-card>
+          <ion-card *ngIf="usuario.adm==false" class="card_menu">
+
+          </ion-card>
+        </div>
+      </ion-col>
+
+    </ion-row>
+
+
+
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-menu [content]="content">
+
+  <ion-content class="cor_fundo_verde">
+      <ion-avatar item-start>
+          <img src="https://firebasestorage.googleapis.com/v0/b/nearbeer-b5c74.appspot.com/o/logo%2FLogo.png?alt=media&token=4dadc6c0-d480-41d7-97a9-90224a0cf612" />
+        </ion-avatar>
+      <div padding style="text-indent:1em; font-size:16px;" *ngFor="let usuario of usuario$ | async"><b>Olá:</b> {{usuario.nome}} </div>
+    <ion-list class="cor_fundo_verde">
+        
+      <button ion-item (click)="abrirHome()" class="cor_fundo_verde">
+        <ion-icon name="ios-home-outline" ></ion-icon> <b >Home</b>
+      </button>
+      <button ion-item (click)="abrirPerfil()" class="cor_fundo_verde">
+        <ion-icon name="ios-construct-outline" ></ion-icon> <b >Perfil</b>
+      </button>
+      <button ion-item (click)="abrirCliente()" class="cor_fundo_verde">
+        <ion-icon name="ios-beer-outline"></ion-icon> <b>Clientes</b>
+      </button>
+      <button ion-item (click)="abrirMapa()" class="cor_fundo_verde">
+        <ion-icon name="ios-map-outline"></ion-icon> <b>Mapa</b>
+      </button>
+      <button ion-item  class="cor_fundo_verde">
+        <ion-icon name="ios-information-circle-outline"></ion-icon> <b>Curiosidades</b>
+      </button>
+      <button ion-item (click)="logoff()" class="cor_fundo_verde">
+        <ion-icon name="ios-power-outline"></ion-icon> <b>Sair</b>
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu> 
+
+<ion-nav  #content id="nav" [root]="rootPage"></ion-nav>

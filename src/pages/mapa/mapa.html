@@ -1,0 +1,24 @@
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyCbgAEIr7KEh4peLAo7PFBG3B6XQ8iZ6XM&libraries=places"></script>
+<ion-header>
+  <ion-navbar color="primary">
+       <ion-title>
+            <div style="text-indent:1em; font-size:16px;"> O Mapa da sua cerveja favorita</div>
+      </ion-title>
+     
+      <!-- <div style="text-indent:1em" > O Mapa da sua cerveja favorita</div> -->
+  </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+  <div #map id="map"></div> 
+  
+  <div style="width : 100% ;height: 60%">
+      <ion-list>
+      <ion-item *ngFor="let lugares of places">
+          <p><b>{{lugares.name}}</b></p><ion-badge item-end color="secondary">está a: metros</ion-badge>
+      </ion-item>
+      </ion-list>
+  </div>
+  
+  </ion-content>

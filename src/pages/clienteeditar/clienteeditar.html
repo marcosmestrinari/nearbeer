@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar  color="primary">
+    <ion-title><div style="text-indent:1em; font-size:16px;">Novo Cliente</div></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="cliente" class="cor_fundo_verde">
+  <ion-list *ngFor="let cliente of cliente$ | async">
+    <ion-card class="left-card-border_laranja">
+      <form #form="ngForm" (ngSubmit)="update(cliente)">
+        <ion-item>
+          <ion-label stacked>Nome</ion-label>
+          <ion-input type="text" name="nome" [(ngModel)]="cliente.nome"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>E-mail</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="cliente.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Endereço</ion-label>
+          <ion-input type="text" name="endereco" [(ngModel)]="cliente.endereco"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-select name="status" [(ngModel)]="cliente.status">
+              <ion-option value="Ativo">Ativo</ion-option>
+              <ion-option value="Inativo">Inativo</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <button ion-button block class="cor_fundo_laranja" >Salvar</button>
+        </ion-item>
+
+      </form>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header id="registro" >
+  <ion-navbar  color="primary">
+    <ion-title ><div style="text-indent:1em; font-size:16px;">Perfil de Usuário - [Edição]</div></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let usuario of usuario$ | async">
+
+     <form #form="ngForm" (ngSubmit)="update(usuario)" > 
+
+      <ion-item>
+        <ion-label class="cor_fonte_laranja" stacked><b>Nome</b></ion-label>
+        <ion-input type="text" name="nome" [(ngModel)]="usuario.nome" ></ion-input>
+      </ion-item>
+
+        <button class="cor_fundo_laranja" ion-button block (click)="update(usuario)">Salvar</button>
+ 
+     </form> 
+
+  </ion-list>
+</ion-content>

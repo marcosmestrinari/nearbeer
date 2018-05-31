@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title><div style="text-indent:1em; font-size:16px;">Resultado do sorteio</div></ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding id="usuario" class="cor_fundo_verde">
+	<ion-list>
+		<ion-card class="left-card-border_laranja" *ngFor="let usuario of usuario$ | async">
+
+			<label padding>
+
+
+				Ola {{usuario.nome}}, vocé esta concorrendo ao sorteio de brindes NearBeer, o nome dos sorteados serão anunciados no microfone e tambem aparecerá uma msg nessa tela, fique a tento. 
+
+
+			</label>
+   <h2>	Seu codigo de sorteio é <b>{{usuario.codigo}}</b></h2>
+			 <ion-item>
+      <h1 *ngIf="usuario.sorteado">Parabéns, Voce foi sorteado</h1>
+      <h1 *ngIf="!usuario.sorteado">Você ainda nao foi sorteado</h1>
+    </ion-item>
+		</ion-card>
+	</ion-list>
+</ion-content>

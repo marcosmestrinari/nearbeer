@@ -1,0 +1,50 @@
+<ion-header >
+    <ion-navbar color="primary">
+  
+      <ion-title><div style="text-indent:1em; font-size:16px;">Curiosidades</div></ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding id="curiosidade" class="cor_fundo_verde">
+  
+    <!-- <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab> -->
+  
+    <ion-list>
+      <!-- <ion-searchbar  (ionInput)="getItens($event)"></ion-searchbar> -->
+      <ion-searchbar  ></ion-searchbar>
+      <ion-card *ngFor="let curiosidade of lista | async" class="left-card-border_laranja">
+        <ion-item  
+          >
+          <div item-start style="height: 80px; width: 80px;">
+            <img style="height: 80px; width: 80px;"  [src]="curiosidade.imagem" />
+          </div> 
+  
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4 ><b>Nome:</b> </ion-col>
+
+            </ion-row>
+            <ion-row>
+
+              <ion-col col-20><p><b>{{curiosidade.tipo}}</b></p> </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-4><b>Descrição:</b> </ion-col>
+              <ion-col col-20><p><b><div style="max-width: 15ch;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap">{{curiosidade.descricao}}</div></b></p> </ion-col>
+            </ion-row>
+
+  
+          </ion-grid>
+        </ion-item>
+        <ion-item><button ion-button full block class="cor_fundo_laranja" (click)="detalhar(curiosidade.id)">Detalhes</button></ion-item>
+      </ion-card>
+    </ion-list>
+  
+  </ion-content>

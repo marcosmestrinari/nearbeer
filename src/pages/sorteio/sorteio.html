@@ -1,0 +1,58 @@
+<ion-header >
+  <ion-navbar  color="primary">
+    <ion-title><div style="text-indent:1em; font-size:16px;">Sorteio de Usuarios</div></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="usuario" class="cor_fundo_verde">
+<ion-list>
+  <ion-card *ngFor="let usuario of usuario$ | async" class="left-card-border_laranja">
+  <form #form="ngForm"  > 
+  <ion-item-sliding>
+    <ion-item >
+
+
+        <!-- <ion-avatar item-start >
+          <img [src]="usuario.foto" />
+        </ion-avatar> -->
+
+        <ion-grid >
+          <ion-row>
+            <ion-col col-3><b>Codigo  </b> </ion-col>
+                <ion-col col-20 ><p>{{usuario.codigo}}</p></ion-col>
+          </ion-row>          
+          <ion-row>
+            <ion-col col-3 ><b>Nome</b> </ion-col>
+            <ion-col col-20  *ngIf="usuario.sorteado"><p>{{usuario.nome}}</p> </ion-col>
+            <ion-col col-20 *ngIf="!usuario.sorteado"><p>************</p> </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3 ><b>Email</b> </ion-col>
+            <ion-col col-20 *ngIf="usuario.sorteado"><p>{{usuario.email}}</p> </ion-col>
+            <ion-col col-20 *ngIf="!usuario.sorteado"><p>************</p> </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3><b>Sorteado</b> </ion-col>
+            <ion-col col-20 *ngIf="usuario.sorteado"><p>Sim</p> </ion-col>
+            <ion-col col-20 *ngIf="!usuario.sorteado"><p>Não</p> </ion-col>
+          </ion-row>
+
+
+        </ion-grid>
+    </ion-item>
+
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="sorteadoN(usuario)">
+        <ion-icon name="mail"></ion-icon>
+        Sorteado Não
+      </button>
+      <button ion-button color="primary" (click)="sorteadoS(usuario)">
+        <ion-icon name="mail"></ion-icon>
+        Sorteado Sim
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+  </form>
+  </ion-card>
+</ion-list>
+</ion-content>

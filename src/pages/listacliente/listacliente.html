@@ -1,0 +1,49 @@
+<ion-header >
+	<ion-navbar color="primary">
+
+		<ion-title><div style="text-indent:1em; font-size:16px;">Lista de Clientes</div></ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding id="listacliente" class="cor_fundo_verde">
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+	<ion-list>
+    <ion-searchbar  (ionInput)="getItens($event)"></ion-searchbar>
+    <ion-card *ngFor="let cliente of lista | async" class="left-card-border_laranja">
+      <ion-item  
+        (click)="gerenciar(cliente.id)">
+        <!-- <ion-avatar item-start>
+          <img [src]="cliente.imagem" />
+        </ion-avatar> -->
+
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4 ><b>Nome:</b> </ion-col>
+            <ion-col col-20><p><b>{{cliente.nome}}</b></p> </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><b>Email:</b> </ion-col>
+            <ion-col col-20><p><b>{{cliente.email}}</b></p> </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><b>Ender.:</b> </ion-col>
+            <ion-col col-20><p><b>{{cliente.endereco}}</b></p> </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><b>Status:</b> </ion-col>
+            <ion-col col-20><p><b>{{cliente.status}}</b></p></ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-item>
+      <ion-item><button ion-button full block class="cor_fundo_laranja">Ver no mapa</button></ion-item>
+    </ion-card>
+	</ion-list>
+
+</ion-content>

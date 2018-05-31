@@ -1,0 +1,42 @@
+<ion-header  >
+  <ion-navbar color="primary">
+    <ion-title><div style="text-indent:1em; font-size:16px;">Perfil de Usuário [Visualização]</div></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="usuario" class="cor_fundo_verde">
+	<ion-list>
+      <ion-card class="left-card-border_laranja">
+    
+		<ion-item *ngFor="let usuario of usuario$ | async" 
+      (click)="gerenciar(usuario.id)" >
+
+        <ion-avatar item-start>
+          <img [src]="usuario.foto" />
+        </ion-avatar>
+
+        <ion-grid>
+          
+          <ion-row>
+            <ion-col col-4><b>nome</b> </ion-col>
+            <ion-col col-20><p>{{usuario.nome}}</p> </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><b>email</b> </ion-col>
+            <ion-col col-20><p>{{usuario.email}}</p> </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><b>Senha</b> </ion-col>
+            <ion-col col-20><p>******</p> </ion-col>
+          </ion-row>
+
+        </ion-grid>
+        
+    
+		</ion-item>
+    <ion-item>
+      <button ion-button full block class="cor_fundo_laranja">Trocar Imagem</button>
+    </ion-item>
+  </ion-card>
+	</ion-list>
+</ion-content>
